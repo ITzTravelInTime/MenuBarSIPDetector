@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Command",
+        "repositoryURL": "https://github.com/ITzTravelInTime/Command",
+        "state": {
+          "branch": null,
+          "revision": "7f67c7570088a7d3e6f7a988a48f0523dce6e6da",
+          "version": "1.1.2"
+        }
+      },
+      {
+        "package": "SwiftCPUDetect",
+        "repositoryURL": "https://github.com/ITzTravelInTime/SwiftCPUDetect",
+        "state": {
+          "branch": null,
+          "revision": "2fec9cb8a5fbba123623bf2ba8c6a782ed440119",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "TINURecovery",
+        "repositoryURL": "https://github.com/ITzTravelInTime/TINURecovery.git",
+        "state": {
+          "branch": null,
+          "revision": "b5f542ffe7e6eaaa3450d83fba3b8f04df40002f",
+          "version": "3.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
