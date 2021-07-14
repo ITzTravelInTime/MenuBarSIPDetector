@@ -21,8 +21,21 @@
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Check this project on github ..." id="ysR-Dr-bCN">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="checkOnGithub:" target="Voe-Tx-rLC" id="pov-Zh-tsR"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="HaH-nq-Lds"/>
+                                        <menuItem title="Show this app in the Finder" id="meX-Eq-SgO">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="showInFinder:" target="Voe-Tx-rLC" id="gQe-Tk-MfH"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" hidden="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Open at user login" id="d6J-42-ilt">
+                                        <menuItem title="Open at user login" hidden="YES" id="d6J-42-ilt">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                         <menuItem title="Preferences…" hidden="YES" keyEquivalent="," id="BOF-NM-1cW"/>

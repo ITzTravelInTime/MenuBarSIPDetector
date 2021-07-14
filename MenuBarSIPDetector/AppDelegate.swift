@@ -8,22 +8,11 @@
 import Cocoa
 import TINURecovery
 
-#if TEST
 public class DebugSIP: SIP{
-    public static var simulatedStatus: Bool? = nil
-    
-    public static var status: Bool{
-        if let sim = simulatedStatus{
-            return sim
-        }
-        
-        return actualStatus
+    public override class var simulatedStatus: SIPStatus?{
+        return nil//SIPStatus(resultsEnabled: nil, usesCustomConfiguration: !false)
     }
 }
-
-#else
-public typealias DebugSIP = SIP
-#endif
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -46,20 +35,49 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        statusItem?.button?.title = "SIP is \(DebugSIP.status ? "enabled" : "disabled")"
-        
-        let itemImage = DebugSIP.status ? NSImage(named: NSImage.statusAvailableName) : NSImage(named: NSImage.statusUnavailableName)
-        //itemImage?.isTemplate = true
-        statusItem?.button?.image = itemImage
-        statusItem?.button?.imagePosition = NSControl.ImagePosition.imageLeft
-        
-        if let menu = menu {
-            statusItem?.menu = menu
+        DispatchQueue.global(qos: .userInteractive).async {
+            let status = DebugSIP.status
+            
+            DispatchQueue.main.sync {
+                
+                self.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+                
+                var itemImage: NSImage?
+                var title = ""
+                
+                if let stat = status.resultsEnabled{
+                    title = "SIP is \(stat ? "enabled" : "disabled")"
+                
+                    itemImage =  NSImage(named: stat ? NSImage.statusAvailableName : NSImage.statusUnavailableName)
+                }else{
+                    title = "SIP status unkwon"
+                    itemImage = NSImage(named: NSImage.statusPartiallyAvailableName)
+                }
+                
+                title += status.usesCustomConfiguration ? " (custom config.)" : ""
+                
+                //itemImage?.isTemplate = true
+                self.statusItem?.button?.title = title
+                self.statusItem?.button?.image = itemImage
+                self.statusItem?.button?.imagePosition = NSControl.ImagePosition.imageLeft
+                
+                if let menu = self.menu {
+                    self.statusItem?.menu = menu
+                }
+                
+            }
         }
         
     }
-
+    
+    @IBAction func checkOnGithub(_ sender: Any) {
+        let _ = NSWorkspace.shared.open(URL(string: "https://github.com/ITzTravelInTime/MenuBarSIPDetector")!)
+    }
+    
+    @IBAction func showInFinder(_ sender: Any) {
+        NSWorkspace.shared.selectFile(Bundle.main.bundlePath, inFileViewerRootedAtPath: Bundle.main.bundleURL.deletingLastPathComponent().path)
+    }
+    
 
 }
 
