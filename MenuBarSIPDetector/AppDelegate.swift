@@ -50,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 
                     itemImage =  NSImage(named: stat ? NSImage.statusAvailableName : NSImage.statusUnavailableName)
                 }else{
-                    title = "SIP status unkwon"
+                    title = "SIP status unknown"
                     itemImage = NSImage(named: NSImage.statusPartiallyAvailableName)
                 }
                 

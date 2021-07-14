@@ -8,7 +8,7 @@ This app has been mostly made for Developers and people who often changes the st
 
 ![SIP off](./Images/SIPDisabled.png)
 
-![SIP unkown](./Images/SIPUnkown.png)
+![SIP unknown](./Images/SIPUnknown.png)
 
 # Credits
 
