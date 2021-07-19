@@ -18,7 +18,7 @@ import AppKit
     
     private static var instance: NSWindowController? = nil
     
-    static func createAndShow( fromBit bit: DebugSIP.SIPBits, withStatus status: Bool ){
+    static func createAndShow( fromBit bit: DebugSIP.SIPBits, withStatus cstatus: Bool ){
         
         if instance == nil{
             instance = (NSStoryboard.init(name: "Main", bundle: Bundle.main).instantiateController(withIdentifier: "InfoWindowController") as? NSWindowController)
@@ -33,10 +33,15 @@ import AppKit
         guard let content = instance?.contentViewController as? InfoViewController else { return }
         
         content.bit = bit
-        content.status = status
+        content.status = cstatus
+        
+        if content.infoLabel != nil && content.currentStatusLabel != nil && content.currentStatusImageView != nil{
+            content.viewDidAppear()
+        }
         
         instance?.showWindow(self)
         instance?.window?.makeKeyAndOrderFront(self)
+        
     }
     
     override func viewDidAppear() {

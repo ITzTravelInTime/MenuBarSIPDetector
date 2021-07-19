@@ -6,12 +6,15 @@
 //
 
 import Cocoa
+import TINURecovery
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var menu: NSMenu?
     @IBOutlet weak var firstMenuItem: NSMenuItem?
+    @IBOutlet weak var refreshMenuItem: NSMenuItem?
+    
     private var statusItem: NSStatusItem?
     private var itemsAdded = false
 
@@ -26,15 +29,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        
+        if refreshMenuItem != nil {
+            refreshMenuItem?.isHidden = !Recovery.status
+        }
+        
         DispatchQueue.global(qos: .userInteractive).async {
-            let _ = DebugSIP.status
+            let status = DebugSIP.status
             
             DispatchQueue.main.sync {
                 
                 self.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
                 
-                let itemImage = DebugSIP.status.statusBadge()
-                let title = DebugSIP.status.statusStrig()
+                let itemImage = status.statusBadge()
+                let title = status.statusStrig()
                 
                 //itemImage?.isTemplate = true
                 self.statusItem?.button?.title = title
@@ -45,7 +53,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     
                     self.itemsAdded.toggle()
                     
-                    for bit in DebugSIP.status.detailedConfiguration.sorted(by: { $0.key.rawValue > $1.key.rawValue }){
+                    for i in self.menu?.items ?? []{
+                        if i as? BitMenuItem != nil{
+                            self.menu?.removeItem(i)
+                        }
+                    }
+                    
+                    for bit in status.detailedConfiguration.sorted(by: { $0.key.rawValue > $1.key.rawValue }){
                         let m = BitMenuItem(title: bit.key.name , action: #selector(self.openBitInfo(_:)), keyEquivalent: "")
                         
                         m.bit = bit.key
@@ -80,6 +94,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func showInFinder(_ sender: Any) {
         NSWorkspace.shared.selectFile(Bundle.main.bundlePath, inFileViewerRootedAtPath: Bundle.main.bundleURL.deletingLastPathComponent().path)
+    }
+    
+    @IBAction func refresh( _ sender: Any){
+        
+        
+        
+        self.itemsAdded = false
+        awakeFromNib()
     }
     
 

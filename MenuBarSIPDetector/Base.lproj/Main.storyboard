@@ -100,6 +100,12 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="MenuBarSIPDetector" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
+                                        <menuItem title="Refresh" image="NSRefreshTemplate" id="yqa-XC-D8Q">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="refresh:" target="Voe-Tx-rLC" id="021-ow-ZcW"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="xCw-i2-zXC"/>
                                         <menuItem title="About MenuBarSIPDetector" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -131,7 +137,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" hidden="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide MenuBarSIPDetector" hidden="YES" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide MenuBarSIPDetector" state="on" hidden="YES" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -167,6 +173,7 @@
                     <connections>
                         <outlet property="firstMenuItem" destination="d6J-42-ilt" id="2Hr-xL-ZDP"/>
                         <outlet property="menu" destination="uQy-DD-JDr" id="53E-wJ-4ue"/>
+                        <outlet property="refreshMenuItem" destination="yqa-XC-D8Q" id="lc9-Qd-w8L"/>
                     </connections>
                 </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -176,6 +183,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="NSRefreshTemplate" width="14" height="16"/>
         <image name="NSStatusUnavailable" width="16" height="16"/>
     </resources>
 </document>
