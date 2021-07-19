@@ -10,6 +10,8 @@
 		C6254B94268B07BB0082C7F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6254B93268B07BB0082C7F5 /* AppDelegate.swift */; };
 		C6254B98268B07BD0082C7F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6254B97268B07BD0082C7F5 /* Assets.xcassets */; };
 		C6254B9B268B07BD0082C7F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6254B99268B07BD0082C7F5 /* Main.storyboard */; };
+		C659BE6326A4D58500786905 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C659BE6226A4D58500786905 /* InfoViewController.swift */; };
+		C6B2389A26A37975003AC9E2 /* SIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B2389926A37974003AC9E2 /* SIP.swift */; };
 		C6FB65CB268B0E99007ECD56 /* TINURecovery in Frameworks */ = {isa = PBXBuildFile; productRef = C6FB65CA268B0E99007ECD56 /* TINURecovery */; };
 /* End PBXBuildFile section */
 
@@ -20,6 +22,8 @@
 		C6254B9A268B07BD0082C7F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6254B9C268B07BD0082C7F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6254B9D268B07BD0082C7F5 /* MenuBarSIPDetector.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MenuBarSIPDetector.entitlements; sourceTree = "<group>"; };
+		C659BE6226A4D58500786905 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		C6B2389926A37974003AC9E2 /* SIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIP.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				C6254B93268B07BB0082C7F5 /* AppDelegate.swift */,
+				C6B2389926A37974003AC9E2 /* SIP.swift */,
+				C659BE6226A4D58500786905 /* InfoViewController.swift */,
 				C6254B97268B07BD0082C7F5 /* Assets.xcassets */,
 				C6254B99268B07BD0082C7F5 /* Main.storyboard */,
 				C6254B9C268B07BD0082C7F5 /* Info.plist */,
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6B2389A26A37975003AC9E2 /* SIP.swift in Sources */,
+				C659BE6326A4D58500786905 /* InfoViewController.swift in Sources */,
 				C6254B94268B07BB0082C7F5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,7 +287,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MenuBarSIPDetector/Info.plist;
@@ -288,7 +296,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.pietrocaruso.MenuBarSIPDetector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -305,7 +313,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MenuBarSIPDetector/Info.plist;
@@ -314,7 +322,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.pietrocaruso.MenuBarSIPDetector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -351,7 +359,7 @@
 			repositoryURL = "https://github.com/ITzTravelInTime/TINURecovery.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.3.0;
+				minimumVersion = 3.7.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

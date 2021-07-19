@@ -6,60 +6,56 @@
 //
 
 import Cocoa
-import TINURecovery
-
-public class DebugSIP: SIP{
-    public override class var simulatedStatus: SIPStatus?{
-        return nil//SIPStatus(resultsEnabled: nil, usesCustomConfiguration: !false)
-    }
-}
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-
     
     @IBOutlet weak var menu: NSMenu?
     @IBOutlet weak var firstMenuItem: NSMenuItem?
     private var statusItem: NSStatusItem?
+    private var itemsAdded = false
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         awakeFromNib()
-     
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         DispatchQueue.global(qos: .userInteractive).async {
-            let status = DebugSIP.status
+            let _ = DebugSIP.status
             
             DispatchQueue.main.sync {
                 
                 self.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
                 
-                var itemImage: NSImage?
-                var title = ""
-                
-                if let stat = status.resultsEnabled{
-                    title = "SIP is \(stat ? "enabled" : "disabled")"
-                
-                    itemImage =  NSImage(named: stat ? NSImage.statusAvailableName : NSImage.statusUnavailableName)
-                }else{
-                    title = "SIP status unknown"
-                    itemImage = NSImage(named: NSImage.statusPartiallyAvailableName)
-                }
-                
-                title += status.usesCustomConfiguration ? " (custom config.)" : ""
+                let itemImage = DebugSIP.status.statusBadge()
+                let title = DebugSIP.status.statusStrig()
                 
                 //itemImage?.isTemplate = true
                 self.statusItem?.button?.title = title
                 self.statusItem?.button?.image = itemImage
                 self.statusItem?.button?.imagePosition = NSControl.ImagePosition.imageLeft
+                
+                if !self.itemsAdded{
+                    
+                    self.itemsAdded.toggle()
+                    
+                    for bit in DebugSIP.status.detailedConfiguration.sorted(by: { $0.key.rawValue > $1.key.rawValue }){
+                        let m = BitMenuItem(title: bit.key.name , action: #selector(self.openBitInfo(_:)), keyEquivalent: "")
+                        
+                        m.bit = bit.key
+                        m.bitStatus = bit.value
+                        
+                        m.image = bit.value.badge()
+                        
+                        self.menu?.insertItem(m, at: 0)
+                    }
+                }
                 
                 if let menu = self.menu {
                     self.statusItem?.menu = menu
@@ -68,6 +64,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         
+    }
+    
+    @IBAction func openBitInfo( _ sender: BitMenuItem){
+        if sender.bit == nil{
+            return
+        }
+        
+        InfoViewController.createAndShow(fromBit: sender.bit!, withStatus: sender.bitStatus)
     }
     
     @IBAction func checkOnGithub(_ sender: Any) {

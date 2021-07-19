@@ -1,14 +1,16 @@
 # MenuBarSIPDetector
 
-This is a DEMO app for my Swift library  [TINURecovery](https://github.com/ITzTravelInTime/TINURecovery) and it is a macOS menu bar app that displays the current status of SIP (System Integrity Protection).
+This is a DEMO app for my Swift library  [TINURecovery](https://github.com/ITzTravelInTime/TINURecovery) and it is a macOS menu bar app that displays the current status of SIP (System Integrity Protection) including all the details.
 
-This app has been mostly made for Developers and people who often changes the status of SIP and want to always know what is it's current value.
+This app has been mostly made for Developers and people who often changes the status of SIP and want to always know what is it's current value precisely.
 
 ![SIP on](./Images/SIPEnabled.png)
 
 ![SIP off](./Images/SIPDisabled.png)
 
 ![SIP unknown](./Images/SIPUnknown.png)
+
+![Info Windows](./Images/Info.png)
 
 # Credits
 

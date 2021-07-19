@@ -3,8 +3,93 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Window Controller-->
+        <scene sceneID="bOG-In-fe0">
+            <objects>
+                <windowController storyboardIdentifier="InfoWindowController" id="MAX-HO-saJ" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="acr-lw-HQl">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="311" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+                        <view key="contentView" id="iN3-zH-m77">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="MAX-HO-saJ" id="uyK-KR-nuj"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="DaS-u8-kuD" kind="relationship" relationship="window.shadowedContentViewController" id="mVl-td-05x"/>
+                    </connections>
+                </windowController>
+                <customObject id="gaO-Pg-d7g" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1143" y="675"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="qYA-qD-tUA">
+            <objects>
+                <viewController id="DaS-u8-kuD" customClass="InfoViewController" customModule="MenuBarSIPDetector" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="vfk-YN-PB4">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="214"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="beo-JE-r9V">
+                                <rect key="frame" x="20" y="44" width="440" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="ZLJ-RS-SID"/>
+                                </constraints>
+                                <textFieldCell key="cell" selectable="YES" borderStyle="bezel" title="Multiline Label" drawsBackground="YES" id="BC2-Xv-QAu">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sDc-Vg-MSN">
+                                <rect key="frame" x="42" y="20" width="420" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Currently disabled" id="3a6-hW-p2X">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h8r-ei-E0z">
+                                <rect key="frame" x="20" y="20" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="3Kq-eq-SlX"/>
+                                    <constraint firstAttribute="height" constant="16" id="ZGo-zx-TZ2"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStatusUnavailable" id="WE1-uh-VHw"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="sDc-Vg-MSN" firstAttribute="top" secondItem="beo-JE-r9V" secondAttribute="bottom" constant="8" symbolic="YES" id="AIi-hN-v2v"/>
+                            <constraint firstAttribute="trailing" secondItem="beo-JE-r9V" secondAttribute="trailing" constant="20" symbolic="YES" id="KPe-p9-obh"/>
+                            <constraint firstItem="h8r-ei-E0z" firstAttribute="leading" secondItem="vfk-YN-PB4" secondAttribute="leading" constant="20" symbolic="YES" id="LWi-bP-rMS"/>
+                            <constraint firstItem="beo-JE-r9V" firstAttribute="leading" secondItem="vfk-YN-PB4" secondAttribute="leading" constant="20" symbolic="YES" id="NsT-3e-SGG"/>
+                            <constraint firstItem="h8r-ei-E0z" firstAttribute="top" secondItem="beo-JE-r9V" secondAttribute="bottom" constant="8" symbolic="YES" id="Nxu-ab-w9e"/>
+                            <constraint firstAttribute="trailing" secondItem="sDc-Vg-MSN" secondAttribute="trailing" constant="20" symbolic="YES" id="cuF-s6-0l6"/>
+                            <constraint firstItem="sDc-Vg-MSN" firstAttribute="leading" secondItem="h8r-ei-E0z" secondAttribute="leading" constant="24" id="hxH-FW-PwU"/>
+                            <constraint firstItem="beo-JE-r9V" firstAttribute="top" secondItem="vfk-YN-PB4" secondAttribute="top" constant="20" symbolic="YES" id="pYf-kv-12S"/>
+                            <constraint firstAttribute="bottom" secondItem="sDc-Vg-MSN" secondAttribute="bottom" constant="20" symbolic="YES" id="rO3-vt-kN6"/>
+                            <constraint firstAttribute="bottom" secondItem="h8r-ei-E0z" secondAttribute="bottom" constant="20" symbolic="YES" id="yoq-B2-P7B"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currentStatusImageView" destination="h8r-ei-E0z" id="LxL-6S-R71"/>
+                        <outlet property="currentStatusLabel" destination="sDc-Vg-MSN" id="7lm-P8-4HP"/>
+                        <outlet property="infoLabel" destination="beo-JE-r9V" id="Rl3-oj-gbq"/>
+                    </connections>
+                </viewController>
+                <customObject id="EGS-hj-csX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1973" y="767"/>
+        </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
@@ -15,13 +100,14 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="MenuBarSIPDetector" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
+                                        <menuItem isSeparatorItem="YES" id="xCw-i2-zXC"/>
                                         <menuItem title="About MenuBarSIPDetector" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Check this project on github ..." id="ysR-Dr-bCN">
+                                        <menuItem title="Check this project on GitHub..." id="ysR-Dr-bCN">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="checkOnGithub:" target="Voe-Tx-rLC" id="pov-Zh-tsR"/>
@@ -86,7 +172,10 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="640" y="502"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSStatusUnavailable" width="16" height="16"/>
+    </resources>
 </document>
