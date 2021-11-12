@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/ITzTravelInTime/SwiftLoggedPrint",
         "state": {
           "branch": null,
-          "revision": "2dc90f3715e158635a9a278a46f5e2eb11ef606b",
-          "version": "3.0.3"
+          "revision": "99e88579542a17863435d78c71c499679a3f397e",
+          "version": "3.1.2"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/ITzTravelInTime/TINURecovery.git",
         "state": {
           "branch": null,
-          "revision": "9f29146e78f09a30d8efa17c0858626689a4c3f9",
-          "version": "3.7.7"
+          "revision": "f5d4077abe3f9b5d58b7fe84f4dc31763433546b",
+          "version": "4.0.0"
         }
       }
     ]
