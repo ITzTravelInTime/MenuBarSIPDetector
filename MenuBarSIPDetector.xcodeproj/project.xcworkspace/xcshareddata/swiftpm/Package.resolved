@@ -6,8 +6,17 @@
         "repositoryURL": "https://github.com/ITzTravelInTime/SwiftLoggedPrint",
         "state": {
           "branch": null,
-          "revision": "99e88579542a17863435d78c71c499679a3f397e",
-          "version": "3.1.2"
+          "revision": "5236d5d1bcf0306d316bb6ac0af9ee6f07894f2f",
+          "version": "3.2.0"
+        }
+      },
+      {
+        "package": "TINUIOKit",
+        "repositoryURL": "https://github.com/ITzTravelInTime/TINUIORegistry",
+        "state": {
+          "branch": null,
+          "revision": "fb0200474b3e8b962cef6a0438420a32e62df944",
+          "version": "0.0.2"
         }
       },
       {
@@ -15,8 +24,8 @@
         "repositoryURL": "https://github.com/ITzTravelInTime/TINURecovery.git",
         "state": {
           "branch": null,
-          "revision": "f5d4077abe3f9b5d58b7fe84f4dc31763433546b",
-          "version": "4.0.0"
+          "revision": "049e06e6cd257fab5448f830feeef1574d2a7790",
+          "version": "4.1.1"
         }
       }
     ]
